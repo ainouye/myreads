@@ -36,7 +36,7 @@ body, .app {
   }
 }
 
-.bookshelf-title {
+.bookshelf-title, .book-title {
   border-bottom: 1px solid #dedede;
 }
 .bookshelf-books {
@@ -171,4 +171,24 @@ body, .app {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* book detail */
+
+.book-content {
+  padding: 10px 20px;
+}
+
+.book-row {
+  display: flex;
+  justify-content: center;
+
+}
+
+.book-details {
+  padding: 0 10px;
+}
+
+.book-details p {
+  font-size: 13px;
 }
