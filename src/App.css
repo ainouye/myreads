@@ -36,7 +36,8 @@ body, .app {
   }
 }
 
-.bookshelf-title, .book-title {
+.bookshelf-title,
+.book-title {
   border-bottom: 1px solid #dedede;
 }
 .bookshelf-books {
@@ -177,6 +178,14 @@ body, .app {
 
 .book-content {
   padding: 10px 20px;
+}
+
+.book-image {
+  position: relative;
+}
+
+.book-image .book-shelf-changer {
+  right: -10px;
 }
 
 .book-row {
