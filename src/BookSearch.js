@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { Debounce } from 'react-throttle';
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
 class BookSearch extends React.Component {
   state = {
-    query: '',
     searchResult: [ ]
   }
 
@@ -21,7 +21,7 @@ class BookSearch extends React.Component {
 
   render() {
     const { shelvedBooks, onUpdateShelf } = this.props
-    const { query, searchResult } = this.state
+    const { searchResult } = this.state
 
     shelvedBooks.forEach(function(shelvedBook) {
       searchResult.forEach(function(searchBook) {
@@ -36,7 +36,9 @@ class BookSearch extends React.Component {
         <div className="search-books-bar">
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author" onChange={(event) => this.updateQuery(event.target.value)} value={ query } />
+            <Debounce time="300" handler="onChange">
+              <input type="text" placeholder="Search by title or author" onChange={(event) => this.updateQuery(event.target.value)} />
+            </Debounce>
           </div>
         </div>
         { searchResult && (
